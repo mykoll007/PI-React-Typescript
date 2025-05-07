@@ -42,3 +42,6 @@ Este é um projeto desenvolvido em **React + TypeScript + Vite** que consome a A
 ### Favoritos
 ![Favoritos](./screenshots/Favorito.png)
 
+🚀 **Projeto online:** [lista-react-typescript.vercel.app](https://lista-react-typescript.vercel.app/)
+
+Feito com ❤️ por **Mykoll Daniel**
