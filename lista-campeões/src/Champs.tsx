@@ -1,5 +1,7 @@
 import "./assets/champs.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 interface Champion {
   id: string;
@@ -11,7 +13,11 @@ interface Champion {
 }
 
 function Champs() {
+  const navigate = useNavigate();
+
   const [champions, setChampions] = useState<Champion[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
     const fetchChamps = async () => {
@@ -30,11 +36,31 @@ function Champs() {
     fetchChamps();
   }, []);
 
+   //  Detectar scroll para mostrar a seta
+   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  //  Voltar ao topo
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+    //  Campeões filtrados com base na busca
+  const filteredChampions = champions.filter((champ) =>
+    champ.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <div className="container-app">
-      <div className="align-arrow">
-        <a href="/"><img src="/arrow-right.png" alt="seta-esquerda" /></a>
-      </div>
 
       <div id="align-logoChamps">
         <img src="/Logo.png" alt="logo" />
@@ -53,9 +79,14 @@ function Champs() {
 
       <h2 id="h2-champs">Campeões LoL</h2>
 
+    <div id="align-input">
+      <input type="text" placeholder="Pesquisar..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+    </div>
+
       <div className="grid-view">
-      {champions.map((champ) => (
-  <div key={champ.id} className="cards-champ">
+      {filteredChampions.map((champ) => (
+    <div key={champ.id} className="cards-champ" onClick={() => navigate(`/champ/${champ.id}`)}
+        style={{ cursor: "pointer" }}>
     <img
       src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`}
       alt={champ.name}
@@ -68,7 +99,7 @@ function Champs() {
 
       </div>
 
-      <div id="back-to-top">
+      <div id="back-to-top" className={showArrow ? "show" : ""} onClick={scrollToTop}>
         <img src="/arrow-right.png" alt="seta-cima" />
       </div>
     </div>

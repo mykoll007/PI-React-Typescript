@@ -20,8 +20,23 @@ button{
     background-color: white;
 }
 #align-logoChamps{
+    margin-top: 48px;
     display: flex;
     justify-content: center;
+}
+#align-input{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+input{
+    width: 303px;
+    height: 38px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-family: 'inter';
+    font-size: 16px;
+    padding-left: 13px;
 }
 .champions-img {
     width: 180px;
@@ -70,6 +85,7 @@ button{
     font-family: 'inter';
     text-align: center;
     color: white;
+    margin-bottom: 39px;
 }
 #h2-champs{
     color: #FF8C00;

@@ -1,0 +1,169 @@
+
+body{
+    margin: 0;
+}
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FF8C00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+#align-imgChamp{
+    display: flex;
+    justify-content: center;
+}
+#align-imgChamp img{
+    border-bottom:3px solid #FF8C00;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#img-campeao{
+    width: 100%; /* Faz a imagem ocupar 100% da largura disponível */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; 
+}
+#campeao-selecionado{
+    color: white;
+    font-size: 40px;
+    margin-left: 16px;
+    margin-bottom: 0;
+    font-family: "DM Sans", sans-serif;
+}
+#campeao-titulo{
+    font-family: inter;
+    margin-left: 16px;
+    margin-top: 5px;
+    font-size: 19px;
+    color: #B3B0B8;
+}
+#campeao-resumo{
+    font-family: inter;
+    margin-left: 16px;
+    font-size: 15px;
+    color: white;
+}
+#funcao-dificuldade{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 56px;
+}
+#align-funcao{
+    display: flex;
+}
+#img-funcao{
+    width: 85px;
+    height: 85px;
+    margin-right: 12px;
+}
+#title-funcao{
+    font-family: inter;
+    color: #B3B0B8;
+    margin-bottom: 5px;
+}
+#funcao{
+    font-family: "DM Sans", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    color: white;
+}
+#dificuldade-p1{
+    font-family: Inter;
+    color: #B3B0B8;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+#dificuldade-p2{
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-size: 21px;
+    color: white;
+}
+#nivel{
+    display: flex;
+}
+
+#title-habilidades{
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 45px;
+}
+
+#skills{
+    display: flex;
+    justify-content: center;
+}
+
+#skills img{
+    border-radius: 8px;
+    margin-right: 2%;
+    opacity: 40%;
+    transition: opacity 0.3s ease;
+}
+
+#video-habilidade{
+    text-align: center;
+    margin-top: 26px;
+}
+video{
+    width: 90%;
+    max-width: 589px;
+    max-height: 402px;
+    border: 3px solid #FF8C00;
+}
+#habilidade-p{
+    opacity: 100% ;
+}
+
+#title-habilidade{
+    font-family: "DM Sans";
+    font-weight: bold;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 22px;
+}
+
+#atalho-tecla{
+    font-family: Inter;
+    text-align: center;
+}
+#desc-habilidade{
+    font-family: Inter;
+    text-align: center;
+    margin-bottom: 131px;
+}
+.align-arrow {
+    position: fixed;
+    top: 10%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: solid white;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}

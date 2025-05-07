@@ -1,9 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Champs from "./Champs"; // ajuste se usar React Router
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Champs from "./Champs";
+import Champ from "./Champ"; // Página individual do campeão
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Champs />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Champs />} />
+        <Route path="/champ/:id" element={<Champ />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
