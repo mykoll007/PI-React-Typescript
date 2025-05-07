@@ -1,4 +1,4 @@
-import "./assets/champs.css";
+import "../assets/champs.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -73,7 +73,7 @@ function Champs() {
       <div id="display-btns"> 
         <div id="align-btns">
             <button id="btn-1">Lista</button>
-            <button id="btn-2">Favoritos</button>
+            <button id="btn-2" onClick={() => navigate("/favoritos")}>Favoritos</button>
         </div>
       </div>
 

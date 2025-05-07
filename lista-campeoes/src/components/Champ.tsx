@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./assets/champ.css";
+import "../assets/champ.css";
+import "../assets/responsivel.css"
 
 interface ChampionData {
   id: string;
@@ -40,6 +41,17 @@ function Champ() {
   const navigate = useNavigate();
   const [champ, setChamp] = useState<ChampionData | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<SelectedSkill | null>(null);
+  const [isFavorito, setIsFavorito] = useState(false);
+
+  const traducaoFuncoes: Record<string, string> = {
+    Assassin: "Assassino",
+    Fighter: "Lutador",
+    Mage: "Mago",
+    Marksman: "Atirador",
+    Support: "Suporte",
+    Tank: "Tanque",
+  };
+
 
   useEffect(() => {
     const fetchChampData = async () => {
@@ -50,27 +62,39 @@ function Champ() {
         const data = await res.json();
         const champData = data.data[id as string] as ChampionData;
         setChamp(champData);
-  
-        // Definir a passiva como habilidade selecionada ao carregar os dados
+
         setSelectedSkill({
           name: champData.passive.name,
           description: champData.passive.description,
           key: "P",
         });
+
+        const favoritos = JSON.parse(localStorage.getItem("favoritos") || "[]");
+        setIsFavorito(favoritos.includes(champData.id));
       } catch (err) {
         console.error("Erro ao buscar detalhes do campeão:", err);
       }
     };
-  
+
     fetchChampData();
   }, [id]);
-  
+
+  const toggleFavorito = () => {
+    if (!champ) return;
+    const favoritos = JSON.parse(localStorage.getItem("favoritos") || "[]");
+    let atualizados;
+    if (favoritos.includes(champ.id)) {
+      atualizados = favoritos.filter((favId: string) => favId !== champ.id);
+    } else {
+      atualizados = [...favoritos, champ.id];
+    }
+    localStorage.setItem("favoritos", JSON.stringify(atualizados));
+    setIsFavorito(!isFavorito);
+  };
 
   if (!champ) return <p>Carregando...</p>;
 
   const dificuldade = champ.info.difficulty;
-  
-  // Lógica para determinar a descrição da dificuldade
   let dificuldadeTexto = "Fácil";
   if (dificuldade > 1 && dificuldade <= 3) {
     dificuldadeTexto = "Médio";
@@ -78,7 +102,6 @@ function Champ() {
     dificuldadeTexto = "Difícil";
   }
 
-  // Definindo os níveis conforme a dificuldade
   let niveisExibidos;
   if (dificuldade <= 1) {
     niveisExibidos = ["/nivel-claro.png", "/nivel-escuro.png", "/nivel-escuro.png"];
@@ -110,10 +133,16 @@ function Champ() {
         />
       </div>
 
-       <div id="aligns-stars"> 
+      <div id="aligns-stars">
         <h2 id="campeao-selecionado">{champ.name}</h2>
-        <img src="/Star-white.png" alt="Estrela sem favoritar" />
-      </div> 
+        <img
+          src={isFavorito ? "/Star-yellow.png" : "/Star-white.png"}
+          alt="Favoritar"
+          onClick={toggleFavorito}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
+
       <p id="campeao-titulo">{champ.title}</p>
       <p id="campeao-resumo">{champ.blurb}</p>
 
@@ -126,7 +155,7 @@ function Champ() {
           />
           <div>
             <p id="title-funcao">Função</p>
-            <p id="funcao">{champ.tags[0]}</p>
+            <p id="funcao">{traducaoFuncoes[champ.tags[0]] || champ.tags[0]}</p>
           </div>
         </div>
 
@@ -193,7 +222,7 @@ function Champ() {
               loop
               muted
               onLoadedData={(e) => (e.currentTarget.style.visibility = "visible")}
-              style={{ visibility: "hidden", maxWidth: "100%", borderRadius: "8px" }}
+              style={{ visibility: "hidden", borderRadius: "8px" }}
             >
               <source src={getVideoUrl(selectedSkill.key)} type="video/mp4" />
               Seu navegador não suporta o elemento de vídeo.
