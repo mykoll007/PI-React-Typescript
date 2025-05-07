@@ -37,7 +37,7 @@ Este é um projeto desenvolvido em **React + TypeScript + Vite** que consome a A
 ![Home](./screenshots/Homes.png)
 
 ### Página de Detalhes
-![Detalhes](./screenshots/Champ.png)
+![Detalhes](./screenshots/Champs.png)
 
 ### Favoritos
 ![Favoritos](./screenshots/Favorito.png)
