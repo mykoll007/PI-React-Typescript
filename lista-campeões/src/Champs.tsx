@@ -40,6 +40,17 @@ function Champs() {
         <img src="/Logo.png" alt="logo" />
       </div>
 
+      <div id="desc-pag">
+        <p>Descubra tudo sobre os campeões de League of Legends.</p>
+      </div>
+
+      <div id="display-btns"> 
+        <div id="align-btns">
+            <button id="btn-1">Lista</button>
+            <button id="btn-2">Favoritos</button>
+        </div>
+      </div>
+
       <h2 id="h2-champs">Campeões LoL</h2>
 
       <div className="grid-view">

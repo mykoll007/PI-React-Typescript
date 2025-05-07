@@ -1,6 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+body{
+    background-color: black;
+}
+button{
+    font-family: 'DM Sans';
+    width: 104px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 0;
+    padding: 6px;
+    border-radius: 4px;
+}
+#btn-1{
+    color: white;
+    background-color: #FF8C00;
+}
+#btn-2{
+    color: black;
+    background-color: white;
+}
 #align-logoChamps{
     display: flex;
     justify-content: center;
+}
+.champions-img {
+    width: 180px;
+}
+.desc-nome {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-width: 148px;
+    color: white;
+}
+.desc-titul {
+    font-family: "Inter";
+    font-weight: 400;
+    opacity: 60%;
+    margin: 0;
+    font-size: 15px;
+    max-width: 148px;
+    color: white;
 }
 .align-arrow{
     position: fixed;
@@ -24,21 +66,26 @@
 .align-arrow a{
     height: 32px;
 }
+#desc-pag{
+    font-family: 'inter';
+    text-align: center;
+    color: white;
+}
 #h2-champs{
     color: #FF8C00;
     font-family: 'DM SANS';
     text-align: center;
     font-size: 26px;
 }
-.posicoes{
-    text-align: center;
-    font-size: 21px;
+#display-btns{
+    display: flex;
+    justify-content: center;
 }
-#roles{
-    text-align: center;
-    margin-bottom: 15px;
+#align-btns{
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
 }
-
 #roles img{
     padding: 0 6px;
 }
