@@ -7,6 +7,8 @@ Este é um projeto desenvolvido em **React + TypeScript + Vite** que consome a A
 - ✅ **Visualização de todos os campeões** com nome, título e imagem
 - 🔍 **Campo de busca** para filtrar campeões em tempo real
 - ⭐ **Favoritar campeões**, com persistência em `localStorage`
+
+
 - 📄 **Página de detalhes** com:
   - Imagem splash oficial
   - Nome e título do campeão
