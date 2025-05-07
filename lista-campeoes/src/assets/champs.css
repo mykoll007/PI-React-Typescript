@@ -10,6 +10,7 @@ button{
     border: 0;
     padding: 6px;
     border-radius: 4px;
+    cursor: pointer;
 }
 #btn-1{
     color: white;
@@ -40,6 +41,7 @@ input{
 }
 .champions-img {
     width: 180px;
+    cursor: pointer;
 }
 .desc-nome {
     font-family: "Inter";

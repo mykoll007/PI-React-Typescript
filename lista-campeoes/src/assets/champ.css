@@ -121,6 +121,7 @@ body{
     margin-right: 2%;
     opacity: 40%;
     transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 #skills img.selected {
     opacity: 1;
@@ -179,3 +180,4 @@ video{
     text-align: center;
     margin-bottom: 30px
 }
+
