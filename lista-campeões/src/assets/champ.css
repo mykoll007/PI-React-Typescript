@@ -2,24 +2,19 @@
 body{
     margin: 0;
 }
-#loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#btn-retroceder{
+    background: none;
+    padding: 0;
+    background: none;
     width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #FF8C00;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
 }
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+#align-arrow{
+    margin-top: 5px;
 }
-
+#aligns-stars{
+    display: flex;
+    align-items: center;
+}
 #align-imgChamp{
     display: flex;
     justify-content: center;
@@ -30,10 +25,18 @@ body{
     height: auto;
     object-fit: cover;
 }
-
+#aligns-starts{
+    display: flex;
+    align-items: center;
+}
+#aligns-stars img{
+    height: 38px;
+    margin-top: 34px;
+    margin-left: 19px;
+}
 #img-campeao{
-    width: 100%; /* Faz a imagem ocupar 100% da largura disponível */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 100%; 
+    height: auto; 
     object-fit: cover; 
 }
 #campeao-selecionado{
@@ -119,6 +122,9 @@ body{
     opacity: 40%;
     transition: opacity 0.3s ease;
 }
+#skills img.selected {
+    opacity: 1;
+  }
 
 #video-habilidade{
     text-align: center;
@@ -166,4 +172,10 @@ video{
     border: solid white;
     z-index: 1000;
     transition: opacity 0.3s ease;
+}
+#habilidade-desc{
+    color: white;
+    font-family: Inter;
+    text-align: center;
+    margin-bottom: 30px
 }
